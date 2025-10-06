@@ -2,6 +2,10 @@
 
 EVA is API endpoint application for E-VISA Assignment system. This is only PoC, do not use in production.
 
+## Documentation
+
+[https://eva.dockerized.dev](https://eva.dockerized.dev)
+
 ## Quick start
 
 - Requirements:
@@ -26,7 +30,7 @@ Full documentation is maintained in two places:
 - From JetBrains IDE with Writerside plugin
 - Compiled PDF/HTML in the `docs/` directory
   - PDF [docs/pdfSourceEVA.pdf](docs/pdfSourceEVA.pdf) 
-  - HTML [docs/pdfSourceEVA.html](docs/index.html)
+  - HTML [docs/index.html](docs/index.html) 
 
 ## Project structure
 
