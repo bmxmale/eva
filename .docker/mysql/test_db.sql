@@ -1,0 +1,3 @@
+CREATE DATABASE eva_test;
+GRANT ALL PRIVILEGES ON eva_test.* TO 'eva'@'%';
+FLUSH PRIVILEGES;
