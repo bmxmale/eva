@@ -11,7 +11,6 @@ services:
             - '.:/var/www/eva:ro'
     php:
         container_name: eva-php
-        image: bmxmale/eva-php:8.4-fpm
         build: '.docker/php'
         depends_on:
             - db
