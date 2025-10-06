@@ -26,7 +26,7 @@ Full documentation is maintained in two places:
 - From JetBrains IDE with Writerside plugin
 - Compiled PDF/HTML in the `docs/` directory
   - PDF [docs/pdfSourceEVA.pdf](docs/pdfSourceEVA.pdf) 
-  - HTML [docs/pdfSourceEVA.html](docs/pdfSourceEVA.html)
+  - HTML [docs/pdfSourceEVA.html](docs/index.html)
 
 ## Project structure
 
