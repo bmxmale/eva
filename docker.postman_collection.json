@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "bc52e250-5660-4a64-b949-841c5bbf05cc",
+		"name": "EVA Docker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44907698",
+		"_collection_link": "https://mateuszlerczak.postman.co/workspace/Mateusz-Lerczak's-Workspace~e980e5ce-94c7-40ab-825d-63ce9c73df85/collection/44907698-bc52e250-5660-4a64-b949-841c5bbf05cc?action=share&source=collection_link&creator=44907698"
+	},
+	"item": [
+		{
+			"name": "John Wick first application",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/ld+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/ld+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"passport\": {\n    \"number\": \"YUBICO2025\",\n    \"code\": \"USA\",\n    \"type\": \"P\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Wick\",\n    \"issuedAt\": \"2021-06-01\",\n    \"expiresAt\": \"2031-06-01\"\n  },\n  \"visaType\": \"D\",\n  \"purposeOfVisit\": 4,\n  \"startDate\": \"2025-01-01\",\n  \"endDate\": \"2035-12-31\",\n  \"status\": \"approved\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:2137/applications",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "2137",
+					"path": [
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "John Wick second application",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/ld+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/ld+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"visaType\": \"C\",\n    \"purposeOfVisit\": 3,\n    \"startDate\": \"2025-11-01\",\n    \"endDate\": \"2025-11-30\",\n    \"status\": \"pending\",\n    \"passport\": \"/passport/USA/YUBICO2025\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:2137/applications",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "2137",
+					"path": [
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "John Wick Validation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/ld+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:2137/applications/USA/YUBICO2025",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "2137",
+					"path": [
+						"applications",
+						"USA",
+						"YUBICO2025"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "John Wick Passport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:2137/passport/USA/YUBICO2025",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "2137",
+					"path": [
+						"passport",
+						"USA",
+						"YUBICO2025"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
