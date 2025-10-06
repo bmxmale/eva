@@ -1,0 +1,430 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-http.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script><style>
+        .article {
+            position: relative;
+            padding-bottom: 24px;
+        }
+        
+
+        .bordered-element {
+            border: 1px solid #c4c4c4;
+            overflow: hidden;
+        }
+        
+
+        .bordered-element-rounded {
+            border: 1px solid #c4c4c4;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+        
+
+        .code-block {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            border-radius: 8px;
+            font-variant-ligatures: none;
+            background-color: rgba(25, 25, 28, .05);
+            word-break: break-all;
+        }
+        
+
+        .detached {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-bottom: 8px;
+        }
+        
+
+        .flex {
+            display: flex;
+        }
+        
+
+        .list {
+            list-style-type: disc;
+            padding-left: 0;
+            margin-left: 15px;
+        }
+        
+
+        .list-decimal {
+            list-style-type: decimal;
+        }
+        
+
+        .list-item {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 4px;
+        }
+        
+
+        .main-title {
+            padding-bottom: 24px;
+            margin-top: 0;
+            font-size: 40px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+
+        .prism {
+            page-break-inside: avoid;
+        }
+        
+        /* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=highlight-keywords */
+code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre-wrap;word-spacing:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:16px;margin:0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+
+        
+
+        .procedure-steps {
+            box-sizing: border-box;
+            padding: 8px 8px 2px 8px;
+        }
+        
+        .procedure-steps ol {
+            margin-block-end: 0;
+            margin-block-start: 0;
+        }
+        
+
+        .prompt {
+            flex-direction: row;
+            letter-spacing: .0015em;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+
+        .prompt-content {
+            padding: 15px;
+            overflow: hidden;
+            flex: 1 1 auto;
+        }
+        
+
+        .prompt-content-p p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+
+        .prompt-icon {
+            flex: 0 0 auto;
+            margin-left: 15px;
+            margin-top: 15px;
+            fill: currentcolor;
+            width: 24px;
+            height: 24px;
+        }
+        
+
+        :root {
+            width: 95%;
+            max-width: 95vw;
+            padding: 0 0 0 30px;
+        }
+        
+        body {
+            font-family: JetBrains Sans,serif;
+        }
+        
+        a {
+            overflow-wrap: anywhere;
+            width: 100vw;
+        }
+        
+        
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff) format("woff");
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        
+        code {
+            display: inline;
+            word-break: break-word;
+            font-size: 15px;
+            line-height: inherit;
+            font-variant-ligatures: none;
+            font-family: JetBrains Sans,monospace;
+            white-space: pre-line;
+            overflow-wrap: break-word;
+        }
+        
+        figcaption {
+            margin-top: 5px;
+        }
+        
+        h2 {
+            padding-top: 16px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h3 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h4 {
+            padding-top: 4px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        p {
+            padding: 0;
+            border: 0;
+            line-height: 25px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding-bottom: 8px;
+        }
+        
+        div {
+            display: block;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            page-break-inside: avoid;
+        }
+        
+        th, td {
+            border: 1px solid #c4c4c4;
+            padding: 10px;
+            text-align: left;
+            word-break: break-all;
+        }
+        
+        .no-bold {
+            font-weight: normal; 
+        }
+        
+        .entry {
+            display: grid;
+            grid-template-columns: auto max-content;
+            grid-template-areas: "chapter page";
+            align-items: end;
+            gap: 0 .25rem;
+            line-height: 25px;
+        }
+        
+        .toc-link-container{
+            grid-area: chapter;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .toc-link{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .toc-link-container::after {
+            position: absolute;
+            padding-left: .25ch;
+            content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+            text-align: right;
+        }
+        
+        .page {
+            grid-area: page;
+            width: 30px;
+            text-align: right;
+        }
+        
+
+        .tab-content {
+            padding: 16px;
+        }
+        
+        .tab-content > *  {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+
+        .tab-title  {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+
+        .topic {
+            page-break-before: always;
+        }
+        
+
+        .warning {
+            background: rgba(244, 92, 74, .2);
+        }
+        </style><title>pdfSourceEVA</title></head><body><div><section class="topic"><div><article class="article"><h1 class="main-title">Table of Contents</h1><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-818320358">Fetch project</a></div><div class="page">2</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-1481507160">Local env</a></div><div class="page">4</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-1117019419">A) Docker Compose</a></div><div class="page">5</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#3078449">B) DDEV</a></div><div class="page">7</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#96794">Available API Endpoints</a></div><div class="page">10</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-317300301">First Visa Application</a></div><div class="page">11</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#1098009975">Seconnd Visa Application</a></div><div class="page">13</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#766238985">Get Applications for passport</a></div><div class="page">15</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-527867735">Get Passport</a></div><div class="page">18</div></div></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-818320358">Fetch project</h1><p id="-818320358#v57hdg_3">EVA project is stored in a Git repository. To work on an existing project, you need to fetch it from the remote repository.</p><p id="-818320358#v57hdg_4">EVA GitHub repository (<a href="https://github.com/bmxmale/eva">https://github.com/bmxmale/eva</a>)</p><section class="detached"><h2 id="-818320358#requirements" data-toc="requirements#01-Fetch-project.md-requirements">Requirements</h2><p id="-818320358#v57hdg_9">Before you begin, ensure that you have the following prerequisites installed on your machine:</p><ul class="list" id="-818320358#v57hdg_10" start="1"><li class="list-item" id="-818320358#v57hdg_11"><p id="-818320358#v57hdg_14">Git</p></li><li class="list-item" id="-818320358#v57hdg_12"><p id="-818320358#v57hdg_15">SSH Key (optional but recommended): If you plan to use SSH</p></li><li class="list-item" id="-818320358#v57hdg_13"><p id="-818320358#v57hdg_16">Composer: PHP dependency manager https://getcomposer.org/ (<a href="https://getcomposer.org/">https://getcomposer.org/</a>)</p></li></ul></section><section class="detached"><h2 id="-818320358#create-a-directory" data-toc="create-a-directory#01-Fetch-project.md-create-a-directory">Create a Directory</h2><p id="-818320358#v57hdg_18">Create a directory where you want to clone the repository. Open your terminal and run the following commands:</p><div class="detached code-block" id="-818320358#v57hdg_19"><pre><code class="language-bash">mkdir Sites
+cd Sites</code></pre></div></section><section class="detached"><h2 id="-818320358#cloning-the-repository" data-toc="cloning-the-repository#01-Fetch-project.md-cloning-the-repository">Cloning the Repository</h2><div id="-818320358#v57hdg_20"><div class="detached" id="-818320358#v57hdg_21"><div class="tab-title"><div>SSH</div></div><div class="bordered-element tab-content"><div class="detached code-block" id="-818320358#v57hdg_23"><pre><code class="language-bash">git clone git@github.com:bmxmale/eva.git eva-project</code></pre></div></div></div><div class="detached" id="-818320358#v57hdg_22"><div class="tab-title"><div>HTTPS</div></div><div class="bordered-element tab-content"><div class="detached code-block" id="-818320358#v57hdg_24"><pre><code class="language-bash">git clone https://github.com/bmxmale/eva.git eva-project</code></pre></div></div></div></div></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-1481507160">Local env</h1></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-1117019419">A) Docker Compose</h1><section class="detached"><h2 id="-1117019419#prerequisites" data-toc="prerequisites#docker-compose.md-prerequisites">Prerequisites</h2><p id="-1117019419#n5znt5_6">Before you begin, ensure that you have the following prerequisites installed on your machine:</p><ul class="list" id="-1117019419#n5znt5_7" start="1"><li class="list-item" id="-1117019419#n5znt5_8"><p id="-1117019419#n5znt5_10">Docker: Install Docker from https://www.docker.com/get-started (<a href="https://www.docker.com/get-started">https://www.docker.com/get-started</a>)</p></li><li class="list-item" id="-1117019419#n5znt5_9"><p id="-1117019419#n5znt5_12">Docker Compose: Follow the installation instructions for your operating system from https://docs.docker.com/compose/install/ (<a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a>)</p></li></ul></section><section class="detached"><h2 id="-1117019419#quick-start" data-toc="quick-start#docker-compose.md-quick-start">Quick start</h2><section class="procedure-steps bordered-element detached"><ol class="list list-decimal"><li class="list-item" id="-1117019419#n5znt5_15"><p>Run command </p><div class="detached code-block" id="-1117019419#n5znt5_19"><pre><code class="language-bash">docker-compose up -d</code></pre></div></li><li class="list-item" id="-1117019419#n5znt5_16"><p>Switch to container shell </p><div class="detached code-block" id="-1117019419#n5znt5_20"><pre><code class="language-bash">docker-compose exec php sh</code></pre></div></li><li class="list-item" id="-1117019419#n5znt5_17"><p>Install dependencies </p><div class="detached code-block" id="-1117019419#n5znt5_21"><pre><code class="language-bash">composer install</code></pre></div></li><li class="list-item" id="-1117019419#n5znt5_18"><p>Migrate database by running command </p><div class="detached code-block" id="-1117019419#n5znt5_22"><pre><code class="language-bash">bin/console doctrine:migrations:migrate</code></pre></div></li></ol></section></section><section class="detached"><h2 id="-1117019419#testing" data-toc="testing#docker-compose.md-testing">Testing</h2><p id="-1117019419#n5znt5_23">To run tests, execute the following command:</p><div class="detached code-block" id="-1117019419#n5znt5_24"><pre><code class="language-bash">docker-compose exec php ./vendor/bin/phpunit</code></pre></div></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="3078449">B) DDEV</h1><p id="3078449#eeg4ot_3">You can use DDEV to set up a local development environment for your web projects. DDEV is an open-source tool that simplifies the process of creating and managing local development environments using Docker containers.</p><section class="detached"><h2 id="3078449#prerequisites" data-toc="prerequisites#ddev.md-prerequisites">Prerequisites</h2><p id="3078449#eeg4ot_10">Before you begin, ensure that you have the following prerequisites installed on your machine:</p><ul class="list" id="3078449#eeg4ot_11" start="1"><li class="list-item" id="3078449#eeg4ot_12"><p id="3078449#eeg4ot_14">Docker: Install Docker from https://www.docker.com/get-started (<a href="https://www.docker.com/get-started">https://www.docker.com/get-started</a>)</p></li><li class="list-item" id="3078449#eeg4ot_13"><p id="3078449#eeg4ot_16">DDEV: Follow the installation instructions for your operating system from https://docs.ddev.com/en/stable/users/install/ (<a href="https://docs.ddev.com/en/stable/users/install/">https://docs.ddev.com/en/stable/users/install/</a>)</p></li></ul></section><section class="detached"><h2 id="3078449#starting-a-ddev-project" data-toc="starting-a-ddev-project#ddev.md-starting-a-ddev-project">Starting a DDEV Project</h2><p id="3078449#eeg4ot_18">Enter your project directory in the terminal and run the following command to start the DDEV environment:</p><div class="detached code-block" id="3078449#eeg4ot_19"><pre><code class="language-bash">ddev start</code></pre></div><p id="3078449#eeg4ot_20">This command will create and start the necessary Docker containers for your project. You should see output similar to the following:</p><div class="detached code-block" id="3078449#eeg4ot_21"><pre><code class="language-bash">➜  eva git:(main) ✗ ddev start
+Starting eva...
+Building project images....
+Project images built in 2s.
+ Network ddev-eva_default  Created
+ Container ddev-eva-db  Created
+ Container ddev-eva-web  Created
+ Container ddev-eva-web  Started
+ Container ddev-eva-db  Started
+You have Mutagen enabled and your 'symfony' project type doesn't have `upload_dirs` set.
+For faster startup and less disk usage, set upload_dirs to where your user-generated files are stored.
+If this is intended you can disable this warning with `ddev config --disable-upload-dirs-warning`.
+Starting Mutagen sync process...
+Mutagen sync flush completed in 1s.
+For details on sync status 'ddev mutagen st eva -l'
+Waiting for containers to become ready: [web db]
+Starting ddev-router if necessary...
+ Container ddev-router  Created
+ Container ddev-router  Started
+Successfully started eva
+Your project can be reached at https://eva.ddev.site
+See 'ddev describe' for alternate URLs.</code></pre></div><blockquote class="prompt flex bordered-element-rounded warning detached">
+  <svg xmlns="http://www.w3.org/2000/svg" class="prompt-icon">
+    <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+  </svg>
+  <div class="prompt-content prompt-content-p"><p>The first time you run <b id="3078449#eeg4ot_23">ddev start</b>, it may take a few minutes to download the necessary Docker images and set up the environment.</p></div>
+</blockquote>
+</section><section class="detached"><h2 id="3078449#accessing-the-project" data-toc="accessing-the-project#ddev.md-accessing-the-project">Accessing the Project</h2><p id="3078449#eeg4ot_24">Once the DDEV environment is up and running, you can access your project in a web browser by navigating to the URL provided in the terminal output https://eva.ddev.site (<a href="https://eva.ddev.site">https://eva.ddev.site</a>).</p></section><section class="detached"><h2 id="3078449#running-commands-in-the-ddev-environment" data-toc="running-commands-in-the-ddev-environment#ddev.md-running-commands-in-the-ddev-environment">Running Commands in the DDEV Environment</h2><p id="3078449#eeg4ot_26">This command opens a shell inside the web container, allowing you to run commands as if you were on a regular server.</p><div class="detached code-block" id="3078449#eeg4ot_27"><pre><code class="language-bash">ddev ssh</code></pre></div><p id="3078449#eeg4ot_28">To install PHP dependencies using Composer, run:</p><div class="detached code-block" id="3078449#eeg4ot_29"><pre><code class="language-bash">ddev composer install</code></pre></div><p id="3078449#eeg4ot_30">To run database migrations, use:</p><div class="detached code-block" id="3078449#eeg4ot_31"><pre><code class="language-bash">bin/console doctrine:migrations:migrate</code></pre></div></section><section class="detached"><h2 id="3078449#stopping-the-ddev-project" data-toc="stopping-the-ddev-project#ddev.md-stopping-the-ddev-project">Stopping the DDEV Project</h2><div class="detached code-block" id="3078449#eeg4ot_32"><pre><code class="language-bash">ddev stop</code></pre></div></section><section class="detached"><h2 id="3078449#removing-the-ddev-project" data-toc="removing-the-ddev-project#ddev.md-removing-the-ddev-project">Removing the DDEV Project</h2><div class="detached code-block" id="3078449#eeg4ot_33"><pre><code class="language-bash">ddev delete</code></pre></div></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="96794">Available API Endpoints</h1><section class="detached"><h2 id="96794#base-url" data-toc="base-url#api.md-base-url">Base URL</h2><div id="96794#z1ipe9u_4"><div class="detached" id="96794#z1ipe9u_6"><div class="tab-title"><div>Docker</div></div><div class="bordered-element tab-content"><div class="detached code-block" id="96794#z1ipe9u_8"><pre><code class="language-bash">http://127.0.0.1:2137</code></pre></div></div></div><div class="detached" id="96794#z1ipe9u_7"><div class="tab-title"><div>DDEV</div></div><div class="bordered-element tab-content"><div class="detached code-block" id="96794#z1ipe9u_9"><pre><code class="language-bash">https://eva.ddev.site</code></pre></div></div></div></div><section class="detached"><h3 id="96794#postman-collection" data-toc="postman-collection#api.md-postman-collection">Postman Collection</h3><p id="96794#z1ipe9u_10">You can use the following Postman collection to interact with the API endpoints:</p><div class="detached code-block" id="96794#z1ipe9u_11"><pre><code class="language-bash">docker.postman_collection.json</code></pre></div></section></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-317300301">First Visa Application</h1><section class="detached"><h2 id="-317300301#endpoint" data-toc="endpoint#first-application.md-endpoint">Endpoint</h2><div class="detached code-block" id="-317300301#fu953d_4"><pre><code class="language-http">POST /application</code></pre></div><section class="detached"><h3 id="-317300301#body" data-toc="body#first-application.md-body">Body</h3><div class="detached code-block" id="-317300301#fu953d_7"><pre><code class="language-json">{
+  &quot;passport&quot;: {
+    &quot;number&quot;: &quot;YUBICO2025&quot;,
+    &quot;code&quot;: &quot;USA&quot;,
+    &quot;type&quot;: &quot;P&quot;,
+    &quot;firstName&quot;: &quot;John&quot;,
+    &quot;lastName&quot;: &quot;Wick&quot;,
+    &quot;issuedAt&quot;: &quot;2021-06-01&quot;,
+    &quot;expiresAt&quot;: &quot;2031-06-01&quot;
+  },
+  &quot;visaType&quot;: &quot;D&quot;,
+  &quot;purposeOfVisit&quot;: 4,
+  &quot;startDate&quot;: &quot;2025-01-01&quot;,
+  &quot;endDate&quot;: &quot;2035-12-31&quot;,
+  &quot;status&quot;: &quot;approved&quot;
+}</code></pre></div></section><section class="detached"><h3 id="-317300301#response" data-toc="response#first-application.md-response">Response</h3><div class="detached code-block" id="-317300301#fu953d_8"><pre><code class="language-json">{
+    &quot;@context&quot;: &quot;/contexts/Application&quot;,
+    &quot;@id&quot;: &quot;/applications/1&quot;,
+    &quot;@type&quot;: &quot;Application&quot;,
+    &quot;id&quot;: 1,
+    &quot;passport&quot;: {
+        &quot;@id&quot;: &quot;/passport/USA/YUBICO2025&quot;,
+        &quot;@type&quot;: &quot;Passport&quot;,
+        &quot;number&quot;: &quot;YUBICO2025&quot;
+    },
+    &quot;visaType&quot;: &quot;D&quot;,
+    &quot;purposeOfVisit&quot;: 4,
+    &quot;startDate&quot;: &quot;2025-01-01T00:00:00+00:00&quot;,
+    &quot;endDate&quot;: &quot;2035-12-31T00:00:00+00:00&quot;,
+    &quot;status&quot;: &quot;approved&quot;,
+    &quot;valid&quot;: true
+}</code></pre></div></section></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="1098009975">Seconnd Visa Application</h1><section class="detached"><h2 id="1098009975#endpoint" data-toc="endpoint#second-application.md-endpoint">Endpoint</h2><div class="detached code-block" id="1098009975#c181rr_4"><pre><code class="language-http">POST /application</code></pre></div><section class="detached"><h3 id="1098009975#body" data-toc="body#second-application.md-body">Body</h3><div class="detached code-block" id="1098009975#c181rr_7"><pre><code class="language-json">{
+    &quot;visaType&quot;: &quot;C&quot;,
+    &quot;purposeOfVisit&quot;: 3,
+    &quot;startDate&quot;: &quot;2025-11-01&quot;,
+    &quot;endDate&quot;: &quot;2025-11-30&quot;,
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;passport&quot;: &quot;/passport/USA/YUBICO2025&quot;
+}</code></pre></div></section><section class="detached"><h3 id="1098009975#response" data-toc="response#second-application.md-response">Response</h3><div class="detached code-block" id="1098009975#c181rr_8"><pre><code class="language-json">{
+    &quot;@context&quot;: &quot;/contexts/Application&quot;,
+    &quot;@id&quot;: &quot;/applications/2&quot;,
+    &quot;@type&quot;: &quot;Application&quot;,
+    &quot;id&quot;: 2,
+    &quot;passport&quot;: {
+        &quot;@id&quot;: &quot;/passport/USA/YUBICO2025&quot;,
+        &quot;@type&quot;: &quot;Passport&quot;,
+        &quot;number&quot;: &quot;YUBICO2025&quot;
+    },
+    &quot;visaType&quot;: &quot;C&quot;,
+    &quot;purposeOfVisit&quot;: 3,
+    &quot;startDate&quot;: &quot;2025-11-01T00:00:00+00:00&quot;,
+    &quot;endDate&quot;: &quot;2025-11-30T00:00:00+00:00&quot;,
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;valid&quot;: false
+}</code></pre></div></section></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="766238985">Get Applications for passport</h1><section class="detached"><h2 id="766238985#endpoint" data-toc="endpoint#Get-Applications-for-passport.md-endpoint">Endpoint</h2><div class="detached code-block" id="766238985#yafxpv_4"><pre><code class="language-http">GET /applications/{code}/{number}</code></pre></div><section class="detached"><h3 id="766238985#example" data-toc="example#Get-Applications-for-passport.md-example">Example:</h3><div class="detached code-block" id="766238985#yafxpv_7"><pre><code class="language-http">GET /applications/USA/YUBICO2025</code></pre></div></section><section class="detached"><h3 id="766238985#response" data-toc="response#Get-Applications-for-passport.md-response">Response</h3><div class="detached code-block" id="766238985#yafxpv_8"><pre><code class="language-json">{
+    &quot;@context&quot;: &quot;/contexts/Application&quot;,
+    &quot;@id&quot;: &quot;/applications/USA/YUBICO2025&quot;,
+    &quot;@type&quot;: &quot;Collection&quot;,
+    &quot;totalItems&quot;: 2,
+    &quot;member&quot;: [
+        {
+            &quot;@id&quot;: &quot;/applications/1&quot;,
+            &quot;@type&quot;: &quot;Application&quot;,
+            &quot;id&quot;: 1,
+            &quot;passport&quot;: {
+                &quot;@id&quot;: &quot;/passport/USA/YUBICO2025&quot;,
+                &quot;@type&quot;: &quot;Passport&quot;,
+                &quot;number&quot;: &quot;YUBICO2025&quot;
+            },
+            &quot;visaType&quot;: &quot;D&quot;,
+            &quot;purposeOfVisit&quot;: 4,
+            &quot;startDate&quot;: &quot;2025-01-01T00:00:00+00:00&quot;,
+            &quot;endDate&quot;: &quot;2035-12-31T00:00:00+00:00&quot;,
+            &quot;status&quot;: &quot;approved&quot;,
+            &quot;valid&quot;: true
+        },
+        {
+            &quot;@id&quot;: &quot;/applications/2&quot;,
+            &quot;@type&quot;: &quot;Application&quot;,
+            &quot;id&quot;: 2,
+            &quot;passport&quot;: {
+                &quot;@id&quot;: &quot;/passport/USA/YUBICO2025&quot;,
+                &quot;@type&quot;: &quot;Passport&quot;,
+                &quot;number&quot;: &quot;YUBICO2025&quot;
+            },
+            &quot;visaType&quot;: &quot;C&quot;,
+            &quot;purposeOfVisit&quot;: 3,
+            &quot;startDate&quot;: &quot;2025-11-01T00:00:00+00:00&quot;,
+            &quot;endDate&quot;: &quot;2025-11-30T00:00:00+00:00&quot;,
+            &quot;status&quot;: &quot;pending&quot;,
+            &quot;valid&quot;: false
+        }
+    ]
+}</code></pre></div></section></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-527867735">Get Passport</h1><section class="detached"><h2 id="-527867735#endpoint" data-toc="endpoint#get-passport.md-endpoint">Endpoint</h2><div class="detached code-block" id="-527867735#z85emh1_4"><pre><code class="language-http">GET /passport/{code}/{number}</code></pre></div><section class="detached"><h3 id="-527867735#example" data-toc="example#get-passport.md-example">Example:</h3><div class="detached code-block" id="-527867735#z85emh1_7"><pre><code class="language-http">GET /passport/USA/YUBICO2025</code></pre></div></section><section class="detached"><h3 id="-527867735#response" data-toc="response#get-passport.md-response">Response</h3><div class="detached code-block" id="-527867735#z85emh1_8"><pre><code class="language-json">{
+    &quot;@context&quot;: &quot;/contexts/Passport&quot;,
+    &quot;@id&quot;: &quot;/passport/USA/YUBICO2025&quot;,
+    &quot;@type&quot;: &quot;Passport&quot;,
+    &quot;number&quot;: &quot;YUBICO2025&quot;,
+    &quot;code&quot;: &quot;USA&quot;,
+    &quot;type&quot;: &quot;P&quot;,
+    &quot;firstName&quot;: &quot;John&quot;,
+    &quot;lastName&quot;: &quot;Wick&quot;,
+    &quot;issuedAt&quot;: &quot;2021-06-01T00:00:00+00:00&quot;,
+    &quot;expiresAt&quot;: &quot;2031-06-01T00:00:00+00:00&quot;,
+    &quot;valid&quot;: true
+}</code></pre></div></section></section></article></div></section></div></body></html>
